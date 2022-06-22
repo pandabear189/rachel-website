@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello, Time to Sleep!</title>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+
+    <style>
+        h1 {
+            font-size: 4rem;
+        }
+        p {
+            font-size: 1.5rem;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: white;
+            background: #202731;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            padding-top: 100px;
+            padding-bottom: 25px;
+        }
+
+        .blue {
+            background: #5195CF;
+        }
+
+        .red {
+            background: #dd3f31;
+        }
+
+        .dark {
+            background: hsl(216, 21%, 16%);
+        }
+
+        .spacer {
+            aspect-ratio: 960/300;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .layer2 {
+            background-image: url("blue-grey.svg");
+        }
+        .ripple {
+            width: 5px;
+            height: 5px;
+            background-color: transparent;
+            position: fixed;
+            border-radius: 50%;
+            border: 1px solid rgba(253, 252, 252, 0.55);
+        }
+        @keyframes ripple-effect {
+            to {
+                transform:scale(15);
+                opacity: 0.01;
+            }
+        }
+
+    </style>
+    <script>
+        document.onclick = () => applyCursorRippleEffect(event);
+
+        function applyCursorRippleEffect(e) {
+            const ripple = document.createElement("div");
+
+            ripple.className = "ripple";
+            document.body.appendChild(ripple);
+
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+
+            ripple.style.animation = "ripple-effect .4s  linear";
+            ripple.onanimationend = () => document.body.removeChild(ripple);
+
+        }
+        const all = document.body.getElementsByTagName("*");
+        for (let i = 0;  i < all.length; ++i) {
+            all[i].onclick = (event) => event.stopPropagation();
+        }
+
+    </script>
+
+</head>
+<body>
+
+<section class="blue">
+    <div>
+        <div></div>
+        <section>
+
+            <h1>
+                Welcome to Rachel's own website
+            </h1>
+            <p>
+                Rachel should <span class='typing'></span>
+            </p>
+        </section>
+
+    </div>
+</section>
+
+<div class="spacer layer2"></div>
+
+<section class="dark">
+    <h1>Hello there!</h1>
+    <img src="turtle.png" alt="Turtles!!">
+    <p>
+        hello
+    </p>
+
+</section>
+
+<script src="./main.js"></script>
+
+</body>
+
+</html>
